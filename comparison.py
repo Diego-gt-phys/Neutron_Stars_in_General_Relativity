@@ -172,5 +172,5 @@ plt.legend(handles=handles_list, fontsize=15, loc = "upper right", bbox_to_ancho
            ncol = 3,edgecolor="black", framealpha=1, labelspacing=0.2, handletextpad=0.3, handlelength=1.4, columnspacing=1)
 
 plt.tight_layout()
-plt.savefig(rf"constant_density.pdf", format="pdf", bbox_inches="tight")
+plt.savefig(rf"comparison.pdf", format="pdf", bbox_inches="tight")
 plt.show()
