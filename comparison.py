@@ -171,6 +171,7 @@ handles_list = [
 plt.legend(handles=handles_list, fontsize=15, loc = "upper right", bbox_to_anchor=(0.994, 0.99), frameon=True, fancybox=False,
            ncol = 3,edgecolor="black", framealpha=1, labelspacing=0.2, handletextpad=0.3, handlelength=1.4, columnspacing=1)
 
+# Save the figure
 plt.tight_layout()
 plt.savefig(rf"figures\comparison.pdf", format="pdf", bbox_inches="tight")
 plt.show()

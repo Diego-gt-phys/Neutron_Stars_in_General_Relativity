@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
 import matplotlib.lines as mlines
 import pandas as pd
+from scipy.interpolate import interp1d 
 
 # Define the functions
 
@@ -103,5 +104,46 @@ def read_create_dm_eos (m):
 
 # Compute the EoS
 
+G = 1.4765679173556 # in units of km / solar masses
+m = 0.939565420 # Neutron mass in
+p, rho = read_create_dm_eos(m)
 
+# Plot the EoS
 
+fig, ax = plt.subplots(figsize=(9.71, 6))
+
+ax.plot(rho, p, label='Fermi Gas Eos', color = 'r', linewidth=1.5, linestyle='-')
+ax.set_xlabel(r'$\rho$ $\left[ M_{\odot} / km^3 \right]$', fontsize=15, loc='center')
+ax.set_ylabel(r'$p$ $\left[ M_{\odot} / km^3 \right]$', fontsize=15, loc='center')
+ax.yaxis.set_major_formatter(ScalarFormatter(useMathText=True))
+ax.ticklabel_format(style='sci', axis='y', scilimits=(-3, 3))
+ax.set_xscale('log')
+ax.set_yscale('log')
+
+# Configure ticks
+ax.tick_params(axis='both', which='major', direction='in', length=8, width=1.2, labelsize=12, top=True, right=True)
+ax.tick_params(axis='both', which='minor', direction='in', length=4, width=1, labelsize=12, top=True, right=True)
+ax.minorticks_on()
+
+# Set thicker axes
+ax.spines['top'].set_linewidth(1.5)
+ax.spines['right'].set_linewidth(1.5)
+ax.spines['bottom'].set_linewidth(1.5)
+ax.spines['left'].set_linewidth(1.5)
+
+# Set limits
+ax.set_xlim(1e-13, 1e2)
+ax.set_ylim(1e-20, 1e2)
+
+# Set ticks
+ax.set_xticks(np.geomspace(1e-13, 1e1, 15))
+ax.set_yticks(np.geomspace(1e-19, 1e1, 11))
+
+# Write the legend
+plt.legend(fontsize=15, loc = "upper left", bbox_to_anchor=(0.009, 0.99), frameon=True, fancybox=False, ncol = 1,
+           edgecolor="black", framealpha=1, labelspacing=0.2, handletextpad=0.3, handlelength=1.4, columnspacing=1)
+
+# Save the figure
+plt.tight_layout()
+plt.savefig(rf"figures\EoS_{m}.pdf", format="pdf", bbox_inches="tight")
+plt.show()
