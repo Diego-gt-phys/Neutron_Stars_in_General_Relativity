@@ -105,7 +105,7 @@ def read_create_dm_eos (m):
 # Compute the EoS
 
 G = 1.4765679173556 # in units of km / solar masses
-m = 0.939565420 # Neutron mass in
+m = 0.939565 # Neutron mass in GEV
 p, rho = read_create_dm_eos(m)
 
 # Plot the EoS
