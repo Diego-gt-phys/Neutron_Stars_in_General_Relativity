@@ -173,5 +173,5 @@ plt.legend(handles=handles_list, fontsize=15, loc = "upper right", bbox_to_ancho
 
 # Save the figure
 plt.tight_layout()
-plt.savefig(rf"figures\comparison.pdf", format="pdf", bbox_inches="tight")
+plt.savefig(rf"figures\comparison.svg", format="svg", bbox_inches="tight")
 plt.show()

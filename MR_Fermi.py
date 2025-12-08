@@ -61,6 +61,6 @@ plt.legend(fontsize=15, loc = "upper right", bbox_to_anchor=(0.99, 0.99), frameo
 
 # Save plot as PDF
 plt.tight_layout()
-plt.savefig("figures\MR_Fermi.pdf", format="pdf", bbox_inches="tight")
+plt.savefig("figures\MR_Fermi.svg", format="svg", bbox_inches="tight")
 
 plt.show()

@@ -99,6 +99,6 @@ plt.legend(handles=handles_list, loc = "upper center", bbox_to_anchor=(0.5, 0.99
 # Save plot as PDF
 #plt.title(rf'DM Stars, Relativity check. $m_{{\chi}} = {dm_m}$', loc='left', fontsize=15, fontweight='bold')
 plt.tight_layout()
-plt.savefig(f"figures\TOV_NS.pdf", format="pdf", bbox_inches="tight")
+plt.savefig(f"figures\TOV_NS.svg", format="svg", bbox_inches="tight")
 
 plt.show()
